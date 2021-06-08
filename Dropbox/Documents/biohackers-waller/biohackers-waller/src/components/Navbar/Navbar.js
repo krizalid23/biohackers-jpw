@@ -1,52 +1,55 @@
-import React from 'react'
+import React from 'react';
+import Typewriter from 'typewriter-effect';
 
-
-
-const h1 = {
-    fontSize: '3em',
-    color: 'red',
-    textAlign: 'center',
-    marginTop: '-5px',
-}
-
-const h2 = {
-    fontSize: '1em',
-    color: 'rgb(41, 209, 19)',
-    marginTop: '-15%',
-}
-
-const Style0 = {
+const NavbarStyle = {
     backgroundColor: 'rgba(19, 20, 18, 0.507)',
+    width: '100%',
+    height: '0%',
 }
 
-
-const Style1 = {
+const BrandingStyle = {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-evenly",
 }
 
-
-const Style2 = {
+const TituloYSubtituloStyle = {
     display: "flex",
     flexDirection: "column",
-    marginLeft: '-35%',
+}
+
+const MenuStyle = {
+    display: "grid",
+    gridTemplateColumns: 'repeat(5,auto)',
+    gridGap: '20px',
+    textAlign: 'center',
+    listStyleType: 'none',
 }
 
 
 export default function Navbar() {
+
+    var image1 = require('./../../img/camrobot.gif');
+    
+    var image2 = require('./../../img/contador.png');
+
+
     return (
-        <nav class="NavbarItems" style={Style0}> 
-            <div style={Style1}>
-                <div style={Style2}>
-                    <h1 style={h1}>BIOHACKERS</h1>
-                    <h2 style={h2}>E-COMMERCE TRANSHUMANISTA</h2>
+        <nav className="navbarItems" style={NavbarStyle}>
+            <div style={BrandingStyle}>
+                <img src={image1} className="camrobot" title='CamBot' alt='CamBot' />
+                <div style={TituloYSubtituloStyle}>
+                    <h1>BIOHACKERS</h1>
+                    <h2> <Typewriter onInit={(typewriter) => {
+                        typewriter.typeString('E-COMMERCE TRANSHUMANISTA').start();
+                    }} /></h2>
                 </div>
-                <ul style={Style1}>
-                    <li className="nav-item"><a className="nav-link" href='#'>HOME</a></li>
-                    <li className="nav-item"><a className="nav-link" href='#'>PRODUCTOS</a></li>
-                    <li className="nav-item"><a className="nav-link" href='#'>CARRITO</a></li>
-                </ul>
+                <div className='margins'>
+                    <ul style={MenuStyle}>
+                        <li className="nav-item">HOME</li>
+                        <li className="nav-item">PRODUCTOS</li>
+                        <li className="nav-item">CARRITO<img src={image2} className='contador' title='Counter' alt='Counter' /></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     );

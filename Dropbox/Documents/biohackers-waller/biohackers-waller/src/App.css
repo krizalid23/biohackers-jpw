@@ -2,37 +2,88 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+    font-family: Silkscreen;
+    font-size: 3em;
+    color: red;
+    text-align: center;
+    margin-top: 1%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h2 {
+  font-family: Silkscreen;
+  font-size: 1em;
+  color: rgb(41, 209, 19);
+  margin-top: -12%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-item {
+  font-family: Silkscreen;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
 }
 
-.App-link {
-  color: #61dafb;
+.camrobot {
+  width: 7em;
+  margin-top: -1em;
+  margin-left: 0.1%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contador {
+  width: 20px;
+  margin-top: -3px;
+  margin-left: 3px;
+}
+
+.margins {
+  padding-left: 60%;
+  margin-right: 5%;
+  margin-top: 1em;
+}
+
+h3 {
+  font-family: Silkscreen;
+  color: rgb(41, 209, 19);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.container {
+  display: inline-block; 
+  background-color: rgba(19, 17, 17, 0.507);
+  border-radius: 25px 25px 25px 25px;
+  height: 30em; 
+  width: 70em;
+  margin-top: 1em;
+}
+
+.items {
+  display: grid;
+  margin-top: 2em;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 3fr 3fr 3fr;
+  row-gap: 20px;
+}
+
+#brainusb {
+  width: 10em;
+}
+
+#digioxi {
+  width: 20em;
+}
+
+#dnainmortal {
+  width: 14em;
+}
+
+#bioniceye {
+  width: 10em;
+}
+
+#cyborghands {
+  width: 10em;
+}
+
+#microchip {
+  width: 6em;
 }
