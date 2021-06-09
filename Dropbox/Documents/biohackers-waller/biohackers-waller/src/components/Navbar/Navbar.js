@@ -1,4 +1,5 @@
 import React from 'react';
+import CartWidget from './CartWidget';
 import Typewriter from 'typewriter-effect';
 
 const NavbarStyle = {
@@ -28,18 +29,15 @@ const MenuStyle = {
 
 export default function Navbar() {
 
-    var image1 = require('./../../img/camrobot.gif');
-    
-    var image2 = require('./../../img/contador.png');
-
+    var image1 = require('./../../img/chicavr.gif');
 
     return (
         <nav className="navbarItems" style={NavbarStyle}>
             <div style={BrandingStyle}>
-                <img src={image1} className="camrobot" title='CamBot' alt='CamBot' />
+                <img src={image1} className="logo" title='' alt='' />
                 <div style={TituloYSubtituloStyle}>
                     <h1>BIOHACKERS</h1>
-                    <h2> <Typewriter onInit={(typewriter) => {
+                    <h2 className='subtitulo'> <Typewriter onInit={(typewriter) => {
                         typewriter.typeString('E-COMMERCE TRANSHUMANISTA').start();
                     }} /></h2>
                 </div>
@@ -47,7 +45,7 @@ export default function Navbar() {
                     <ul style={MenuStyle}>
                         <li className="nav-item">HOME</li>
                         <li className="nav-item">PRODUCTOS</li>
-                        <li className="nav-item">CARRITO<img src={image2} className='contador' title='Counter' alt='Counter' /></li>
+                        <li className="nav-item">CARRITO<CartWidget/></li>
                     </ul>
                 </div>
             </div>
