@@ -86,7 +86,6 @@ h3 {
 }
 
 
-
 @media (max-width: 768px) {
 
   .items {
@@ -124,4 +123,41 @@ h3 {
 
 #microchip {
   width: 8em;
+}
+
+.contador {
+  display: inline-block;
+  justify-content: center;
+  margin-left: -5%;
+}
+
+.sumaryrestar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.boton {
+  border-style: solid;
+  display: inline-block;
+  padding: 20px;
+  background-color: rgb(30, 208, 240);
+  border-radius: 50%;
+  height: 50px;
+  margin: 20px;
+}
+
+.signo {
+  font-size: 15px;
+  justify-content: center;
+}
+
+.agregar {
+  background-color: rgb(233, 30, 240);
+}
+
+.letras {
+  width: 12em;
+  color: white;
+  text-shadow: none;
 }
