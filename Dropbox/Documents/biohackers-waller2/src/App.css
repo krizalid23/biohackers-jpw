@@ -1,0 +1,163 @@
+.App {
+  text-align: center;
+}
+
+h1 {
+    font-family: Silkscreen;
+    font-size: 3em;
+    color: red;
+    text-align: center;
+    margin-top: 1%;
+}
+
+h2 {
+  font-family: Silkscreen;
+  font-size: 1em;
+  color: rgb(41, 209, 19);
+}
+
+
+.subtitulo {
+  margin-top: -12%;
+}
+
+.nav-item {
+  font-family: Silkscreen;
+  display: flex;
+  flex-direction: row;
+}
+
+.logo {
+  width: 7em;
+  margin-top: -1em;
+  margin-left: 0.1%;
+}
+
+.cart-widget {
+  margin-top: -3px;
+  margin-left: 3px;
+}
+
+.contador {
+  width: 20px;
+}
+
+.margins {
+  padding-left: 60%;
+  margin-right: 5%;
+  margin-top: 1em;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+h3 {
+  font-family: Silkscreen;
+  color: rgb(41, 209, 19);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#cambot {
+  width: 7em;
+  margin-top: -1em;
+  margin-left: 0.1%;
+}
+
+.container {
+  display: inline-block;
+  background-color: rgba(19, 17, 17, 0.507);
+  border-radius: 25px 25px 25px 25px;
+  height: 35em; 
+  width: 60em;
+  margin-top: 1em;
+}
+
+.items {
+  display: grid;
+  justify-content: center;
+  margin-top: 3em;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 3fr 3fr 3fr;
+  row-gap: 15px;
+}
+
+
+@media (max-width: 768px) {
+
+  .items {
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
+#robotcolgante {
+  height: 26rem;
+  width: 20rem;
+  margin-left: 100rem;
+}
+
+#brainusb {
+  width: 10em;
+}
+
+#digioxi {
+  width: 20em;
+}
+
+#dnainmortal {
+  width: 15em;
+}
+
+#bioniceye {
+  width: 15em;
+}
+
+#cyborghands {
+  width: 15em;
+}
+
+#microchip {
+  width: 8em;
+}
+
+.contador {
+  display: inline-block;
+  justify-content: center;
+  margin-left: -5%;
+}
+
+.sumaryrestar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.boton {
+  border-style: solid;
+  display: inline-block;
+  padding: 20px;
+  background-color: rgb(30, 208, 240);
+  border-radius: 50%;
+  height: 50px;
+  margin: 20px;
+}
+
+.signo {
+  font-size: 15px;
+  justify-content: center;
+}
+
+.agregar {
+  background-color: rgb(233, 30, 240);
+}
+
+.letras {
+  width: 12em;
+  color: white;
+  text-shadow: none;
+}
