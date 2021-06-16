@@ -1,12 +1,11 @@
 import React from 'react';
+import Contador from './../../img/contador.png'
 
 export default function CartWidget() {
 
-    var image2 = require('./../../img/contador.png');
-
     return (
         <div className="cart-widget">
-            <img src={image2} className='contador' title='' alt='' />
+            <img src={Contador} className='contador' title='' alt='' />
         </div>
     );
 }

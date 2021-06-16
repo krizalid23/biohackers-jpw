@@ -1,5 +1,6 @@
 import React from 'react';
-import CartWidget from './CartWidget';
+import ChicaVR from './../../img/chicavr.gif'
+import CartWidget from './../CartWidget/CartWidget.js';
 
 const NavbarStyle = {
     backgroundColor: 'rgba(19, 20, 18, 0.507)',
@@ -31,7 +32,7 @@ export default function Navbar() {
     return (
         <nav className="navbarItems" style={NavbarStyle}>
             <div style={BrandingStyle}>
-                <img src='./../../img/chicavr.gif' className="logo" title='' alt='' />
+                <img src={ChicaVR} className="logo" title='' alt='' />
                 <div style={TituloYSubtituloStyle}>
                     <h1>BIOHACKERS</h1>
                     <h2 className='subtitulo'>E-COMMERCE TRANSHUMANISTA</h2>

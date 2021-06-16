@@ -61,6 +61,19 @@ h3 {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
+h4 {
+  font-family: Silkscreen;
+  color: rgb(223, 13, 188);
+  margin-left: 3%;
+}
+
+
+h5 {
+  font-family: Silkscreen;
+  color: rgb(241, 241, 241);
+  margin-top: -3%;
+}
+
 #cambot {
   width: 7em;
   margin-top: -1em;
@@ -69,16 +82,19 @@ h3 {
 
 .container {
   display: inline-block;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(19, 17, 17, 0.507);
   border-radius: 25px 25px 25px 25px;
-  height: 35em; 
-  width: 60em;
+  height: 40em; 
+  width: 80em;
   margin-top: 1em;
 }
 
 .items {
   display: grid;
   justify-content: center;
+  align-items: center;
   margin-top: 3em;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 3fr 3fr 3fr;
@@ -95,13 +111,12 @@ h3 {
 
 }
 
-#robotcolgante {
-  height: 26rem;
-  width: 20rem;
-  margin-left: 100rem;
+.width {
+  max-width: 10em;
+  margin-left: 25%;
 }
 
-#brainusb {
+.brainusb {
   width: 10em;
 }
 
