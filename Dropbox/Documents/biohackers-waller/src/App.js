@@ -1,18 +1,36 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import { ItemListContainer } from './screens/ItemListContainer/ItemListContainer';
 import { ItemDetailContainer } from './screens/ItemDetailContainer/ItemDetailContainer';
+import { NotFoundComponent } from './components/NotFoundComponent/NotFoundComponent';
+
 import './App.css';
 
 
-export default function App() {
+const App = props => {
 
-  return (
+  return <>
     <div className="App">
-      <Navbar />
-      <ItemListContainer />
-      <ItemDetailContainer/>
+      <BrowserRouter>
+        <Navbar/>
+        <Switch>
+          <Route exact path="/">
+            <ItemListContainer/>
+          </Route>
+          <Route path="/products/:products">
+            <ItemListContainer/>
+          </Route>
+          <Route path="/item/:id">
+            <ItemDetailContainer/>
+          </Route>
+          <Route path="/notFound">
+            <NotFoundComponent/>
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
-  );
+  </>
 }
 
+export default App;

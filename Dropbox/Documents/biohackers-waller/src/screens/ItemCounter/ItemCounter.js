@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Counter() {
+export default function ItemCounter() {
 
     const [count, setCount] = useState(0);
 
@@ -11,6 +11,7 @@ export default function Counter() {
     const handleDecrement = () => {
         setCount(prevCount => prevCount - 1);
     };
+    
     return (
         <div className='contador'>
             <div className='sumaryrestar'>

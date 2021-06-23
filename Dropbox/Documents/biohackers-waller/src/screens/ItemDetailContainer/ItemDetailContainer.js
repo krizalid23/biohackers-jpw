@@ -1,41 +1,37 @@
 import React, { useEffect, useState } from 'react';
-import { ItemDetail } from './ItemDetail/ItemDetail.js'
+import { ItemData } from './../ItemData/ItemsData.js'
+import { ItemDetail } from './../ItemDetail/ItemDetail.js'
+import { useParams, Redirect } from 'react-router-dom';
 
-const myPromiseDetalleProducto = () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => resolve(
-            [
-                {
-                    id: '1',
-                    title: 'USB DE CEREBRO',
-                    description: 'Esta tecnologia le permitira descargar su consciencia a la virtualidad',
-                    price: 10000,
-                    picture: {
-                        pictureUrl: 'https://i.imgur.com/C3jirB8.png',
-                        alt: 'USB DE CEREBRO',
-                    },
-                    stock: 10,
-                }
-            ]
-        ), 2000)
-    })
-}
 
-export const ItemDetailContainer = props => {
+const MiPromesaDetalleProducto = new Promise((resolve, reject) => {
+    setTimeout(() => resolve(ItemData), 2000)
+})
+
+
+export const ItemDetailContainer = () => {
 
     const [detalleProducto, setDetalleProducto] = useState([])
 
+    const { id } = useParams();
+
     useEffect(() => {
-        myPromiseDetalleProducto()
-            .then(response => setDetalleProducto(response))
-            .catch(error => console.log(error))
-    }, []);
+        MiPromesaDetalleProducto.then((data) => {
+            const dataFiltrada = data.filter(ItemData => ItemData.id === id);
+            setDetalleProducto(dataFiltrada)
+        }).catch(() => <Redirect to={'/notFound'} />)
+    }, [id])
+
 
     return <>
-        {
-            detalleProducto.map((detalle) => <ItemDetail detalleProducto={detalle} />)
-        }
-
+        {detalleProducto.length === 0 ? (<div className='container'><h1 className='loader'>CARGANDO...</h1></div>) : (
+            detalleProducto.map((detalleProducto, i) => {
+                return <>
+                    <section key={i}>
+                        <ItemDetail ItemData={detalleProducto} />
+                    </section>
+                </>
+            })
+        )}
     </>
 }
-

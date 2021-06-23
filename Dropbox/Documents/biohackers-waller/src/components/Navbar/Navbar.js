@@ -1,47 +1,32 @@
 import React from 'react';
-import ChicaVR from './../../img/chicavr.gif'
-import CartWidget from './../CartWidget/CartWidget.js';
-
-const NavbarStyle = {
-    backgroundColor: 'rgba(19, 20, 18, 0.507)',
-    width: '100%',
-    height: '0%',
-}
-
-const BrandingStyle = {
-    display: "flex",
-    flexDirection: "row",
-}
-
-const TituloYSubtituloStyle = {
-    display: "flex",
-    flexDirection: "column",
-}
-
-const MenuStyle = {
-    display: "grid",
-    gridTemplateColumns: 'repeat(5,auto)',
-    gridGap: '20px',
-    textAlign: 'center',
-    listStyleType: 'none',
-}
-
+import { Link } from 'react-router-dom';
+import ChicaVR from './../../img/chicavr.gif';
 
 export default function Navbar() {
 
+    const tangibles = 'tangibles';
+    const intangibles = 'intangibles';
+
     return (
-        <nav className="navbarItems" style={NavbarStyle}>
-            <div style={BrandingStyle}>
-                <img src={ChicaVR} className="logo" title='' alt='' />
-                <div style={TituloYSubtituloStyle}>
+        <nav className="navbar">
+            <div className="branding-style">
+                <Link aria-current="page" to={`/#`}><img src={ChicaVR} className="logo" title='' alt='' /></Link>
+                <div className="tituloysubtitulo">
                     <h1>BIOHACKERS</h1>
                     <h2 className='subtitulo'>E-COMMERCE TRANSHUMANISTA</h2>
                 </div>
                 <div className='margins'>
-                    <ul style={MenuStyle}>
-                        <li className="nav-item">HOME</li>
-                        <li className="nav-item">PRODUCTOS</li>
-                        <li className="nav-item">CARRITO<CartWidget/></li>
+                    <ul className='menu'>
+                        <Link to={`/#`} className='link'><li className="nav-item">HOME</li></Link>
+                        <li class="dropdown">
+                            <li className="nav-item">PRODUCTOS
+                                <ul className="dropdown">
+                                    <li className="nav-item"><Link to={`/products/${tangibles}`} className='link'>TANGIBLES</Link></li>
+                                    <li className="nav-item"><Link to={`/products/${intangibles}`} className='link'>INTANGIBLES</Link></li>
+                                </ul>
+                            </li>
+                        </li>
+                        <Link to={`/cart`} className='link' id='carrito'><li className="nav-item">CARRITO</li></Link>
                     </ul>
                 </div>
             </div>

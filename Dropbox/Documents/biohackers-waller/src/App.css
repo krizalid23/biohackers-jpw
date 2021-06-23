@@ -3,26 +3,44 @@
 }
 
 h1 {
-    font-family: Silkscreen;
-    font-size: 3em;
-    color: red;
-    text-align: center;
-    margin-top: 1%;
+  font-family: Silkscreen;
+  font-size: 3em;
+  color: red;
+  text-align: center;
+  margin-top: 1%;
 }
 
 h2 {
-  font-family: Silkscreen;
-  font-size: 1em;
-  color: rgb(41, 209, 19);
+font-family: Silkscreen;
+font-size: 1em;
+color: rgb(41, 209, 19);
 }
 
+.nav-item {
+  color: white;
+  margin: 5%,
+}
 
-.subtitulo {
-  margin-top: -12%;
+.navbar {
+  background-color: rgba(19, 20, 18, 0.507);
+  width: 100%;
+}
+
+.margins {
+  padding-left: 60%;
+  margin-right: 5%;
+  margin-top: 1em;
 }
 
 .nav-item {
   font-family: Silkscreen;
+  color: red;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+}
+
+.branding-style {
   display: flex;
   flex-direction: row;
 }
@@ -33,19 +51,70 @@ h2 {
   margin-left: 0.1%;
 }
 
-.cart-widget {
-  margin-top: -3px;
-  margin-left: 3px;
+
+.tituloysubtitulo {
+  display: flex;
+  flex-direction: column;
 }
 
-.contador {
-  width: 20px;
+.subtitulo {
+  margin-top: -12%;
 }
 
-.margins {
-  padding-left: 60%;
-  margin-right: 5%;
-  margin-top: 1em;
+.menu {
+  display: grid;
+  grid-template-columns: repeat(5,auto);
+  grid-gap: 20px;
+  text-align: center;
+  list-style-type: none;
+}
+
+.dropdown {
+  width: 5em;
+}
+
+li a {
+  color: red;
+  margin-left: -40%;
+  justify-content: center;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+ul li ul {
+  background: rgba(6, 186, 218, 0.514);
+  visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+  position: absolute;
+  transition: all 0.5s ease;
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+ul li:hover > ul,
+ul li:focus-within > ul, /* this is the line we add */
+ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  justify-content: center;
+  align-items: center;
+  display: block;
+}
+
+#carrito {
+  margin-left: 25%;
+}
+
+
+h3 {
+  font-family: Silkscreen;
+  color: rgb(41, 209, 19);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .row{
@@ -55,31 +124,12 @@ h2 {
   margin-top: 1em;
 }
 
-h3 {
-  font-family: Silkscreen;
-  color: rgb(41, 209, 19);
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
-h4 {
-  font-family: Silkscreen;
-  color: rgb(223, 13, 188);
-  margin-left: 3%;
-}
-
-
-h5 {
-  font-family: Silkscreen;
-  color: rgb(241, 241, 241);
-  margin-top: -3%;
-}
-
-
 #cambot {
   width: 7em;
   margin-top: -1em;
   margin-left: 0.1%;
 }
+
 
 .container {
   display: inline-block;
@@ -102,14 +152,29 @@ h5 {
   row-gap: 15px;
 }
 
-
 @media (max-width: 768px) {
-
   .items {
     display: flex;
     flex-direction: column;
   }
 
+}
+
+.loader {
+  margin-top: 20%;
+}
+
+h4 {
+  font-family: Silkscreen;
+  color: rgb(223, 13, 188);
+  margin-left: 3%;
+}
+
+
+h5 {
+  font-family: Silkscreen;
+  color: rgb(241, 241, 241);
+  margin-top: -3%;
 }
 
 .width {
@@ -170,6 +235,7 @@ h5 {
 
 .agregar {
   background-color: rgb(233, 30, 240);
+  cursor: pointer;
 }
 
 .letras {
@@ -177,3 +243,28 @@ h5 {
   color: white;
   text-shadow: none;
 }
+
+.robotonmars {
+  height: 28em;
+  border-radius: 25px 25px 25px 25px ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
