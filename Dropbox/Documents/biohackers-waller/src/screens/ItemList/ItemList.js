@@ -7,11 +7,9 @@ export const ItemList = (props) => {
 
    return <>
       {data.map((data, i) => {
-         return <div className='items'>
-            <div key={i}>
+         return <div key={i}>
                <Item {...data} />
             </div>
-         </div>
       })
       }
    </>

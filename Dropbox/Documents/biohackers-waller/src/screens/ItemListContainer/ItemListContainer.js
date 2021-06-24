@@ -18,7 +18,7 @@ export const ItemListContainer = () => {
     useEffect(() => { MiPromesa.then(data => { setData(data) }).catch(() => <Redirect to={'/notFound'} />) }, [])
 
 
-    const filterByProducts = listOfItems => { return products === undefined ? listOfItems : listOfItems.filter(ItemData => ItemData.products === products) }
+    const filterByProducts = listOfProducts => { return products === undefined ? listOfProducts : listOfProducts.filter(ItemData => ItemData.products === products) }
 
     return <>
         {data.length === 0 ? (
@@ -38,7 +38,9 @@ export const ItemListContainer = () => {
                     <img src={CamBot2} id='cambot' title='' alt='' />
                 </div>
                 <div className='container'>
-                    <ItemList data={filterByProducts(data)} />
+                    <div className='items'>
+                    <ItemList data={filterByProducts(data)}/>
+                </div>
                 </div>
             </section>
         )}

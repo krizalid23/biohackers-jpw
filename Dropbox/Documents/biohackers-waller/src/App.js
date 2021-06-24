@@ -21,7 +21,7 @@ const App = props => {
           <Route path="/products/:products">
             <ItemListContainer/>
           </Route>
-          <Route path="/item/:id">
+          <Route path="/product/:id">
             <ItemDetailContainer/>
           </Route>
           <Route path="/notFound">

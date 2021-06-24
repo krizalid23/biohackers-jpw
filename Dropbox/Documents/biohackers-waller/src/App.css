@@ -16,10 +16,6 @@ font-size: 1em;
 color: rgb(41, 209, 19);
 }
 
-.nav-item {
-  color: white;
-  margin: 5%,
-}
 
 .navbar {
   background-color: rgba(19, 20, 18, 0.507);
@@ -27,8 +23,6 @@ color: rgb(41, 209, 19);
 }
 
 .margins {
-  padding-left: 60%;
-  margin-right: 5%;
   margin-top: 1em;
 }
 
@@ -67,6 +61,8 @@ color: rgb(41, 209, 19);
   grid-gap: 20px;
   text-align: center;
   list-style-type: none;
+  margin-left: 60.5%;
+  margin-top: 1.6%;
 }
 
 .dropdown {
@@ -142,6 +138,17 @@ h3 {
   margin-top: 1em;
 }
 
+.containerdetail {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(19, 17, 17, 0.507);
+  border-radius: 25px 25px 25px 25px;
+  height: 46em; 
+  width: 80em;
+  margin-top: 1em;
+}
+
 .items {
   display: grid;
   justify-content: center;
@@ -152,16 +159,12 @@ h3 {
   row-gap: 15px;
 }
 
-@media (max-width: 768px) {
-  .items {
-    display: flex;
-    flex-direction: column;
-  }
-
+.linkitems {
+  color: transparent;
 }
 
 .loader {
-  margin-top: 20%;
+  padding: 18%;
 }
 
 h4 {
@@ -208,8 +211,6 @@ h5 {
 
 .contador {
   display: inline-block;
-  justify-content: center;
-  margin-left: -5%;
 }
 
 .sumaryrestar {
@@ -230,7 +231,6 @@ h5 {
 
 .signo {
   font-size: 15px;
-  justify-content: center;
 }
 
 .agregar {
@@ -245,11 +245,65 @@ h5 {
 }
 
 .robotonmars {
-  height: 28em;
+  width: 24em;
   border-radius: 25px 25px 25px 25px ;
 }
 
+@media (max-width: 768px) {
+  
+  .tituloysubtitulo {
+    display: none;
+  }
 
+  .logo {
+    margin-left: 3%;
+  }
+
+  .branding-style {
+    margin-top: 1%;
+  }
+
+  #carrito {
+    margin-top: -3%;
+  }
+
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30%;
+    margin-top: 1%;
+  }
+
+  .dropdown {
+    margin-top: -1%;
+    margin-left: -15%;
+  }
+
+  .items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h3 {
+    font-size: 14px;
+    margin-top: -2%;
+  }
+  
+  #cambot {
+    height: 6em;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .boton {
+    padding: 20px;
+  }
+
+}
 
 
 

@@ -1,37 +1,41 @@
 import React, { useEffect, useState } from 'react';
-import { ItemData } from './../ItemData/ItemsData.js'
-import { ItemDetail } from './../ItemDetail/ItemDetail.js'
+import { ItemData } from './../ItemData/ItemsData'
+import { ItemDetail } from './../ItemDetail/ItemDetail'
 import { useParams, Redirect } from 'react-router-dom';
 
 
-const MiPromesaDetalleProducto = new Promise((resolve, reject) => {
+const MiPromesa = new Promise((resolve, reject) => {
     setTimeout(() => resolve(ItemData), 2000)
 })
 
-
 export const ItemDetailContainer = () => {
 
-    const [detalleProducto, setDetalleProducto] = useState([])
+    const [data, setData] = useState([])
 
     const { id } = useParams();
 
     useEffect(() => {
-        MiPromesaDetalleProducto.then((data) => {
-            const dataFiltrada = data.filter(ItemData => ItemData.id === id);
-            setDetalleProducto(dataFiltrada)
+        MiPromesa.then((productos) => {
+            const productosFiltrados = productos.filter(ItemData => ItemData.id === id);
+            setData(productosFiltrados)
         }).catch(() => <Redirect to={'/notFound'} />)
     }, [id])
 
 
     return <>
-        {detalleProducto.length === 0 ? (<div className='container'><h1 className='loader'>CARGANDO...</h1></div>) : (
-            detalleProducto.map((detalleProducto, i) => {
+        {data.length === 0 ? (
+            <section><div className='containerdetail'><br></br><br></br><h1 className='loader'>CARGANDO...</h1></div></section>) : (
+            data.map((data, i) => {
                 return <>
-                    <section key={i}>
-                        <ItemDetail ItemData={detalleProducto} />
-                    </section>
+                    <div className='containerdetail'>
+                        <div key={i}>
+                            <ItemDetail ItemData={data} />
+                        </div>
+                    </div>
                 </>
             })
         )}
     </>
 }
+
+

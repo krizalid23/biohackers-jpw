@@ -15,9 +15,9 @@ body {
   
   body {
     background-image: url(./img/wallpaperphone.gif);
-    background-size: 100%;
     margin: 0;
     overflow-x: hidden;
+    overflow-y: visible;
   }
 
 }

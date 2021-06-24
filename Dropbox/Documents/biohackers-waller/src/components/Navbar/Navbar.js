@@ -15,20 +15,18 @@ export default function Navbar() {
                     <h1>BIOHACKERS</h1>
                     <h2 className='subtitulo'>E-COMMERCE TRANSHUMANISTA</h2>
                 </div>
-                <div className='margins'>
                     <ul className='menu'>
                         <Link to={`/#`} className='link'><li className="nav-item">HOME</li></Link>
-                        <li class="dropdown">
+                        <li className="dropdown">
                             <li className="nav-item">PRODUCTOS
                                 <ul className="dropdown">
-                                    <li className="nav-item"><Link to={`/products/${tangibles}`} className='link'>TANGIBLES</Link></li>
-                                    <li className="nav-item"><Link to={`/products/${intangibles}`} className='link'>INTANGIBLES</Link></li>
+                                    <li className="nav-item"><Link to={`/products/${tangibles}`}>TANGIBLES</Link></li>
+                                    <li className="nav-item"><Link to={`/products/${intangibles}`}>INTANGIBLES</Link></li>
                                 </ul>
                             </li>
                         </li>
-                        <Link to={`/cart`} className='link' id='carrito'><li className="nav-item">CARRITO</li></Link>
+                        <Link to={`/cart`} id='carrito'><li className="nav-item">CARRITO</li></Link>
                     </ul>
-                </div>
             </div>
         </nav>
     );
