@@ -1,35 +1,39 @@
 import React, { useEffect, useState } from 'react';
-import { ItemData } from './../ItemData/ItemsData'
 import { ItemDetail } from './../ItemDetail/ItemDetail'
+import { productoData } from './../ItemData/ItemData'
 import { useParams, Redirect } from 'react-router-dom';
 
 
 const MiPromesa = new Promise((resolve, reject) => {
-    setTimeout(() => resolve(ItemData), 2000)
+    setTimeout(() => resolve(productoData), 2000)
 })
 
 export const ItemDetailContainer = () => {
 
-    const [data, setData] = useState([])
+    const [item, setItem] = useState([])
 
     const { id } = useParams();
 
     useEffect(() => {
         MiPromesa.then((productos) => {
-            const productosFiltrados = productos.filter(ItemData => ItemData.id === id);
-            setData(productosFiltrados)
+            const productosFiltrados = productos.filter(producto => producto.id === id);
+            setItem(productosFiltrados)
         }).catch(() => <Redirect to={'/notFound'} />)
     }, [id])
 
 
     return <>
-        {data.length === 0 ? (
-            <section><div className='containerdetail'><br></br><br></br><h1 className='loader'>CARGANDO...</h1></div></section>) : (
-            data.map((data, i) => {
+        {item.length === 0 ? (
+            <section><div className='containerdetail'><br></br><br></br><h1 className='loader'>CARGANDO...</h1></div></section>
+
+        ) : (
+
+            item.map((item, i) => {
+
                 return <>
                     <div className='containerdetail'>
                         <div key={i}>
-                            <ItemDetail ItemData={data} />
+                            <ItemDetail producto={item} />
                         </div>
                     </div>
                 </>

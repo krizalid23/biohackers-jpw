@@ -18,7 +18,7 @@ const App = props => {
           <Route exact path="/">
             <ItemListContainer/>
           </Route>
-          <Route path="/products/:products">
+          <Route path="/category/:category">
             <ItemListContainer/>
           </Route>
           <Route path="/product/:id">

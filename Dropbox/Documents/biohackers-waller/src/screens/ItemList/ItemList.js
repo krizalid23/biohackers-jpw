@@ -3,13 +3,13 @@ import { Item } from '../Item/Item.js'
 
 export const ItemList = (props) => {
 
-   const { data } = props;
+   const { productos } = props
 
    return <>
-      {data.map((data, i) => {
+      {productos.map((producto, i) => {
          return <div key={i}>
-               <Item {...data} />
-            </div>
+            <Item {...producto} />
+         </div>
       })
       }
    </>

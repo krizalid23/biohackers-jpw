@@ -2,21 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CardMedia from '@material-ui/core/CardMedia';
 
-export const Item = data => {
+export const Item = producto => {
 
     return <div className='item'>
-        <Link className='linkitems' to={`product/${data.id}`}>
+        <Link className='linkitems' to={`/product/${producto.id}`}>
             <CardMedia
                 className='width'
                 component='img'
-                image={data.pictureUrl}
+                image={producto.pictureUrl}
             />
             <div>
-                <div className='row'>
-                    <h3>{data.title}</h3>
-                    <h4>${data.price}</h4>
+                <div className='row--1'>
+                    <h3>{producto.title}</h3>
+                    <h4 className='price'>${producto.price}</h4>
                 </div>
-                <h5>{data.description}</h5>
+                <h5>{producto.description}</h5>
             </div>
         </Link>
     </div>

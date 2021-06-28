@@ -16,6 +16,7 @@ font-size: 1em;
 color: rgb(41, 209, 19);
 }
 
+/*Navbar*/
 
 .navbar {
   background-color: rgba(19, 20, 18, 0.507);
@@ -65,7 +66,12 @@ color: rgb(41, 209, 19);
   margin-top: 1.6%;
 }
 
-.dropdown {
+.dropdown--1 {
+  width: 5em;
+}
+
+
+.dropdown--2 {
   width: 5em;
 }
 
@@ -106,14 +112,16 @@ ul li ul:hover {
   margin-left: 25%;
 }
 
-
 h3 {
   font-family: Silkscreen;
   color: rgb(41, 209, 19);
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
-.row{
+/*Item List Container*/
+
+
+.row--1 {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -126,25 +134,11 @@ h3 {
   margin-left: 0.1%;
 }
 
-
 .container {
   display: inline-block;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(19, 17, 17, 0.507);
+  background-color: rgba(19, 17, 17, 0.438);
   border-radius: 25px 25px 25px 25px;
-  height: 40em; 
-  width: 80em;
-  margin-top: 1em;
-}
-
-.containerdetail {
-  display: inline-block;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(19, 17, 17, 0.507);
-  border-radius: 25px 25px 25px 25px;
-  height: 46em; 
+  max-height: 39em; 
   width: 80em;
   margin-top: 1em;
 }
@@ -167,13 +161,41 @@ h3 {
   padding: 18%;
 }
 
-h4 {
+.title {
+  font-family: Silkscreen;
+  font-size: 1.5em;
+  color: rgb(41, 209, 19);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.description {
+  font-family: Silkscreen;
+  color: rgb(41, 209, 19);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.price {
   font-family: Silkscreen;
   color: rgb(223, 13, 188);
   margin-left: 3%;
 }
 
+.stock {
+  font-family: Silkscreen;
+  color: rgb(41, 209, 19);
+  margin-left: 3%;
+}
 
+.containerdetail {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(19, 17, 17, 0.507);
+  border-radius: 25px 25px 25px 25px;
+  height: 30em; 
+  width: 60em;
+  margin-top: 5em;
+}
 h5 {
   font-family: Silkscreen;
   color: rgb(241, 241, 241);
@@ -182,41 +204,31 @@ h5 {
 
 .width {
   max-width: 10em;
-  margin-left: 25%;
+  margin-left: 30% !important;
 }
 
-.brainusb {
-  width: 10em;
-}
 
-#digioxi {
-  width: 20em;
-}
+/*Item Detail Container*/
 
-#dnainmortal {
-  width: 15em;
-}
 
-#bioniceye {
-  width: 15em;
-}
-
-#cyborghands {
-  width: 15em;
-}
-
-#microchip {
-  width: 8em;
+.itemdetail {
+  margin-top: 7%;
 }
 
 .contador {
   display: inline-block;
+  margin-top: -7%;
+  margin-left: 5%;
 }
 
 .sumaryrestar {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.numero {
+  margin-top: 8%;
 }
 
 .boton {
@@ -229,6 +241,10 @@ h5 {
   margin: 20px;
 }
 
+.boton:hover {
+  cursor: pointer;
+}
+
 .signo {
   font-size: 15px;
 }
@@ -238,16 +254,53 @@ h5 {
   cursor: pointer;
 }
 
-.letras {
-  width: 12em;
+.containerfinalpurchase {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(19, 17, 17, 0.507);
+  border-radius: 25px 25px 25px 25px;
+  height: 30em; 
+  width: 60em;
+  margin-top: 5em;
+}
+
+.robotseller {
+  margin-top: -3%;
+  width: 25em;
+}
+
+.row---2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.cancelar {
+  background-color: rgb(240, 30, 30);
+  cursor: pointer;
+}
+
+
+.finalizar {
+  background-color: rgb(31, 207, 7);
+  cursor: pointer;
+}
+
+.letras-boton {
+  justify-content: center;
   color: white;
   text-shadow: none;
 }
+
 
 .robotonmars {
   width: 24em;
   border-radius: 25px 25px 25px 25px ;
 }
+
+
+/*Mobile Device Styles*/
+
 
 @media (max-width: 768px) {
   
@@ -265,9 +318,9 @@ h5 {
 
   #carrito {
     margin-top: -3%;
+    margin-left: -15%;
   }
-
-
+  
   .menu {
     display: flex;
     flex-direction: column;
@@ -275,9 +328,12 @@ h5 {
     margin-top: 1%;
   }
 
-  .dropdown {
-    margin-top: -1%;
-    margin-left: -15%;
+  .dropdown--1 {
+    margin-left: -35%;
+  }
+
+  .dropdown--2 {
+    margin-left: -1%;
   }
 
   .items {
@@ -287,7 +343,6 @@ h5 {
 
   h3 {
     font-size: 14px;
-    margin-top: -2%;
   }
   
   #cambot {
@@ -295,13 +350,64 @@ h5 {
   }
 
   .container {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(19, 17, 17, 0.247);
+    border-radius: 25px 25px 25px 25px;
     width: 100%;
     height: 100%;
+  }
+  
+  .containerdetail {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(19, 17, 17, 0.507);
+    border-radius: 25px 25px 25px 25px;
+    height: 100%; 
+    width: 100%;
+    margin-top: 2em;
   }
 
   .boton {
     padding: 20px;
   }
+  .letras-boton {
+    margin-top: 9%;
+  }
+
+  .containerfinalpurchase {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(19, 17, 17, 0.507);
+    border-radius: 25px 25px 25px 25px;
+    height: 100%; 
+    width: 100%;
+    margin-top: 5em;
+  }
+  
+  .robotseller {
+    margin-top: -3%;
+    width: 25em;
+  }
+  
+
+  .cancelar {
+    background-color: rgb(240, 30, 30);
+    width: 14em;
+    margin-right: 0%;
+    cursor: pointer;
+  }
+  
+  .finalizar {
+    background-color: rgb(31, 207, 7);
+    width: 14em;
+    margin-left: 0%;
+    cursor: pointer;
+  }
+  
 
 }
 
