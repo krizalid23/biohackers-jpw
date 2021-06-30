@@ -26,7 +26,7 @@ export default function Navbar() {
                                 </ul>
                             </li>
                         </li>
-                        <Link to={`/cart`} id='carrito'><li className="nav-item">CARRITO</li></Link>
+                        <Link to={`/carrito`} id='carrito'><li className="nav-item">CARRITO</li></Link>
                     </ul>
                 </div>
             </nav>

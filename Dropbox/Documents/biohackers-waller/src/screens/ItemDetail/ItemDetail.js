@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Grid } from '@material-ui/core';
 import CardMedia from '@material-ui/core/CardMedia';
 import { Counter } from './../ItemCounter/ItemCounter';
+import { CarritoContext } from "./../../context/ContextoCarrito"
 import { BotonCompraFinal } from './../BotonCompraFinal/BotonCompraFinal'
 
 
@@ -11,14 +12,17 @@ export const ItemDetail = (props) => {
 
     const [cantidad, setCantidad] = useState(0)
     const [click, setClick] = useState(false)
+    const {addItem, removeItem} = useContext(CarritoContext)
 
-    const addItems = cantidad => {
-        setCantidad(cantidad);
+    const agregarProductos = cnt => {
+        setCantidad(cnt); 
         setClick(true);
+        addItem({item: producto, quantity: cnt}) 
     }
 
-    const clickCancelar = cl => {
+    const clickCancelar = () => {
         setClick(false);
+        removeItem(producto.id);
     }
 
 
@@ -46,7 +50,7 @@ export const ItemDetail = (props) => {
                         click ?
                             <BotonCompraFinal clickCancelar={clickCancelar} />
                             :
-                            <Counter stock={producto.stock} initial={1} cantidad={cantidad} addItems={addItems} />
+                            <Counter stock={producto.stock} initial={1} cantidad={cantidad} agregarProductos={agregarProductos} />
                     }
 
                     <h4 className='stock'>{producto.stock} UNIDADES EN STOCK</h4>

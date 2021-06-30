@@ -12,7 +12,7 @@ export const BotonCompraFinal = props => {
     return <>
         <div className='row--2'>
         <Link onClick={() => clickCancelar(false)}><button className='cancelar'><h3 className='letras-boton'>CANCELAR COMPRA</h3></button></Link>
-        <Link onClick={() => history.push(`/cart`)}><button className='finalizar'><h3 className='letras-boton'>FINALIZAR COMPRA</h3></button></Link>
+        <Link onClick={() => history.push(`/carrito`)}><button className='finalizar'><h3 className='letras-boton'>FINALIZAR COMPRA</h3></button></Link>
         </div>
     </>
 }

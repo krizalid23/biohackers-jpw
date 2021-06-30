@@ -24,14 +24,14 @@ export const ItemDetailContainer = () => {
 
     return <>
         {item.length === 0 ? (
-            <section><div className='containerdetail'><br></br><br></br><h1 className='loader'>CARGANDO...</h1></div></section>
+            <section><div className='container-detail'><br></br><br></br><h1 className='loader'>CARGANDO...</h1></div></section>
 
         ) : (
 
             item.map((item, i) => {
 
                 return <>
-                    <div className='containerdetail'>
+                    <div className='container-detail'>
                         <div key={i}>
                             <ItemDetail producto={item} />
                         </div>

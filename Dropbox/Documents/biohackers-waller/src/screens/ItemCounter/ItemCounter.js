@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export const Counter = props => {
 
-    const {stock, initial, cantidad, addItems} = props;
+    const {stock, initial, cantidad, agregarProductos} = props;
 
     const [count, setCount] = useState(initial > cantidad ? initial : cantidad);
 
@@ -21,7 +21,7 @@ export const Counter = props => {
                 <h3 className='numero'>{count}</h3>
                 <button onClick={handleIncrement} className='boton' disabled={count < stock ? false : true}><b className='signo'>+</b></button>
             </div>
-            <button className='agregar' onClick={() => addItems(count)} disabled={stock === 0 ? true : false}><h3 className='letras-boton'>AGREGAR AL CARRITO</h3></button>   
+            <button className='agregar' onClick={() => agregarProductos(count)} disabled={stock === 0 ? true : false}><h3 className='letras-boton'>AGREGAR AL CARRITO</h3></button>   
             { count === stock }  
             </div>);
 }

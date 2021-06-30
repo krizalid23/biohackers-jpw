@@ -186,16 +186,6 @@ h3 {
   margin-left: 3%;
 }
 
-.containerdetail {
-  display: inline-block;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(19, 17, 17, 0.507);
-  border-radius: 25px 25px 25px 25px;
-  height: 30em; 
-  width: 60em;
-  margin-top: 5em;
-}
 h5 {
   font-family: Silkscreen;
   color: rgb(241, 241, 241);
@@ -210,6 +200,16 @@ h5 {
 
 /*Item Detail Container*/
 
+.container-detail {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(19, 17, 17, 0.507);
+  border-radius: 25px 25px 25px 25px;
+  height: 30em; 
+  width: 60em;
+  margin-top: 5em;
+}
 
 .itemdetail {
   margin-top: 7%;
@@ -290,6 +290,25 @@ h5 {
   justify-content: center;
   color: white;
   text-shadow: none;
+}
+
+/* Carrito */
+
+
+.container-cart {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(19, 17, 17, 0.507);
+  border-radius: 25px 25px 25px 25px;
+  height: 30em; 
+  width: 60em;
+  margin-top: 5em;
+}
+
+.table-shop {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
 }
 
 

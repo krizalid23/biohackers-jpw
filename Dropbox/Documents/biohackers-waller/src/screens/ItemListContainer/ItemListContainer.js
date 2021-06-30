@@ -15,7 +15,9 @@ export const ItemListContainer = () => {
     const [productos, setProductos] = useState([]);
 
 
-    useEffect(() => { MiPromesa.then(data => { setProductos(data) }).catch(() => <Redirect to={'/notFound'} />) }, [])
+    useEffect(() => { 
+        MiPromesa.then(data => { setProductos(data) }).catch(() => <Redirect to={'/notFound'} />) 
+    }, [])
 
     const filterByCategory = listOfProductos => { return category === undefined ? listOfProductos : listOfProductos.filter(producto => producto.category === category) }
 
