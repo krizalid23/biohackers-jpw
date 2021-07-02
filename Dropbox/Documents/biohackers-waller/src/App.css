@@ -46,7 +46,6 @@ color: rgb(41, 209, 19);
   margin-left: 0.1%;
 }
 
-
 .tituloysubtitulo {
   display: flex;
   flex-direction: column;
@@ -69,7 +68,6 @@ color: rgb(41, 209, 19);
 .dropdown--1 {
   width: 5em;
 }
-
 
 .dropdown--2 {
   width: 5em;
@@ -265,10 +263,20 @@ h5 {
   margin-top: 5em;
 }
 
-.robotseller {
-  margin-top: -3%;
-  width: 25em;
+/* Cart Widget */
+
+.column {
+  display: flex;
+  flex-direction: column;
+  margin-top: -5%;
+  width: 11.5em;
 }
+
+#robotseller {
+  width: 15em;
+}
+
+
 
 .row---2 {
   display: flex;
@@ -286,7 +294,26 @@ h5 {
   cursor: pointer;
 }
 
+.botonclose {
+  border-style: solid;
+  display: inline-block;
+  background-color: rgb(240, 30, 30);
+  height: 3em;
+  width: 3em;
+  margin-left: 1em;
+  border-radius: 25px 25px 25px 25px; 
+  cursor: pointer;
+}
+
+p {
+  font-family: Silkscreen;
+  justify-content: center;
+  color: white;
+  text-shadow: none;
+}
+
 .letras-boton {
+  font-family: Silkscreen;
   justify-content: center;
   color: white;
   text-shadow: none;
@@ -307,10 +334,12 @@ h5 {
 }
 
 .table-shop {
-  border-top: 1px solid;
-  border-bottom: 1px solid;
+  border-top: 3px solid;
+  border-bottom: 3px solid;
+  justify-content: center;
+  margin-top: 6%;
+  margin-left: 16%;
 }
-
 
 .robotonmars {
   width: 24em;
@@ -372,22 +401,23 @@ h5 {
     display: inline-block;
     justify-content: center;
     align-items: center;
-    background-color: rgba(19, 17, 17, 0.247);
+    background-color: rgba(19, 17, 17, 0.233);
     border-radius: 25px 25px 25px 25px;
     width: 100%;
     height: 100%;
   }
   
-  .containerdetail {
+  .container-detail {
     display: inline-block;
     justify-content: center;
     align-items: center;
-    background-color: rgba(19, 17, 17, 0.507);
+    background-color: rgba(19, 17, 17, 0.63);
     border-radius: 25px 25px 25px 25px;
     height: 100%; 
     width: 100%;
     margin-top: 2em;
   }
+
 
   .boton {
     padding: 20px;
@@ -407,8 +437,26 @@ h5 {
     margin-top: 5em;
   }
   
+  .container-cart {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(19, 17, 17, 0.507);
+    border-radius: 25px 25px 25px 25px;
+    height: 100%; 
+    width: 100%;
+    margin-top: 5em;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    padding-top: 100%;
+    width: 11.5em;
+  }
+  
   .robotseller {
-    margin-top: -3%;
+    padding-top: 100%;
     width: 25em;
   }
   

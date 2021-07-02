@@ -11,7 +11,7 @@ export const NotFoundComponent = () => {
             <img src={RobotOnMars} className='robotonmars' alt='' />
         </div>
         <br></br>
-        <Link to={`/#`}><button className='agregar'><h3 className='letras'>VOLVER AL INICIO</h3></button></Link>
+        <Link to={`/#`}><button className='agregar'><p className='letras'>VOLVER AL INICIO</p></button></Link>
         <br></br>
     </div>
 }
