@@ -6,6 +6,7 @@
 body {
   background-image: url(./img/wallpaper.gif);
   background-size: 100%;
+  background-repeat: no-repeat;
   margin: 0;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -15,6 +16,7 @@ body {
   
   body {
     background-image: url(./img/wallpaperphone.gif);
+    background-repeat: repeat;
     margin: 0;
     overflow-x: hidden;
     overflow-y: visible;

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import { Carrito } from './screens/Carrito/Carrito';
-import { CartWidget } from './components/CartWidget/CartWidget';
+import { CarritoWidget } from './components/CarritoWidget/CarritoWidget';
 import { CarritoComponentContext } from './context/ContextoCarrito';
 import { ItemListContainer } from './screens/ItemListContainer/ItemListContainer';
 import { ItemDetailContainer } from './screens/ItemDetailContainer/ItemDetailContainer';
@@ -35,11 +35,11 @@ const App = props => {
               <NotFoundComponent />
             </Route>
           </Switch>
+          <CarritoWidget />
         </BrowserRouter>
-        <CartWidget />
-        </CarritoComponentContext>
+      </CarritoComponentContext>
     </div>
   </>
 }
 
-    export default App;
+export default App;

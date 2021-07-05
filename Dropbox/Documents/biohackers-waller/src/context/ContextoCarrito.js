@@ -1,46 +1,45 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useState } from 'react';
 
 export const CarritoContext = createContext();
 
 export const CarritoComponentContext = props => {
 
-    const [itemsCarrito, setItemsCarrito] = useState([]);
-    const [subTotal, setSubTotal] = useState(0)
+    const [productosCarrito, setProductosCarrito] = useState([])
+    const [subtotal, setSubtotal] = useState(0)
+    const [productosQuantity, setProductosQuantity] = useState(0) 
 
-    const IsInCarrito = idProducto => {
-        itemsCarrito.find(itemCarrito => itemCarrito.item.id === idProducto)
-    }
-
-    const addItem = productoAgregado => {
-        setSubTotal(subTotal + (productoAgregado.item.price * productoAgregado.quantity))
-        if (IsInCarrito(productoAgregado.item.id)) {
-            const actualizarItem = itemsCarrito.map((itemCarrito) => {
-                const cantidadTotal = itemCarrito.quantity + productoAgregado.quantity;
-                if (itemCarrito.item.id === productoAgregado.item.id) {
-                    return { ...itemCarrito, quantity: cantidadTotal }
+    const addProducto = productoAgregado => {
+        setSubtotal(subtotal + (productoAgregado.item.price * productoAgregado.quantity))
+        setProductosQuantity(productosQuantity + productoAgregado.quantity)
+        if (productosCarrito.find(productoCarrito => productoCarrito.item.id === productoAgregado.item.id)) {
+            const actualizarProducto = productosCarrito.map((productoCarrito) => {
+                const cantidadTotal = productoCarrito.quantity + productoAgregado.quantity;
+                if (productoCarrito.item.id === productoAgregado.item.id) {
+                    return { ...productoCarrito, quantity: cantidadTotal }
                 }
-                return itemCarrito
+                return {productoCarrito}
             })
-            setItemsCarrito(actualizarItem)
+            setProductosCarrito(actualizarProducto)
         } else {
-            setItemsCarrito(productosAgregados => [...productosAgregados, productoAgregado])
+            setProductosCarrito(productosAgregados => [...productosAgregados, productoAgregado])
         }
     }
 
+    const removeProducto = id => {
+        const selectRemoveProducto = productosCarrito.find(productoCarrito => productoCarrito.item.id === id)
+        setSubtotal(subtotal - (selectRemoveProducto.item.price * selectRemoveProducto.quantity))
+        setProductosQuantity(productosQuantity - selectRemoveProducto.quantity)
+        setProductosCarrito(productosCarrito.filter((item) => item.item.id !== id))
+    }
+
     const clear = () => {
-        setItemsCarrito([])
-        setSubTotal(0)
+        setProductosCarrito([]);
+        setSubtotal(0);
+        setProductosQuantity(0);
     }
 
-    const removeItem = id => {
-        setItemsCarrito(itemsCarrito.filter((item) => item.id !== id));
-    }
 
-    useEffect(() => {
-        console.log('Carrito actualizado:', itemsCarrito)
-    }, [itemsCarrito])
-
-    return <CarritoContext.Provider value={{ itemsCarrito, addItem, clear, removeItem }}>
+    return <CarritoContext.Provider value={{ addProducto, removeProducto, subtotal, clear, productosCarrito, productosQuantity }}>
         {props.children}
     </CarritoContext.Provider>
 }
