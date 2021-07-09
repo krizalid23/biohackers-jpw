@@ -1,10 +1,10 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CamBot1 from './../../img/camrobot1.gif';
 import CamBot2 from './../../img/camrobot2.gif';
 import { ItemListContainerStyles } from './ItemListContainerStyles'
 import { ItemList } from './../ItemList/ItemList.js';
-import { getProductos } from './../../services/CloudFirestoreService';
+import { dataBase } from './../../Firebase/firebase'
 import { makeStyles } from '@material-ui/core';
 
 
@@ -16,19 +16,34 @@ export const ItemListContainer = () => {
     const classes = useStyles();
 
     const [productosAMostrar, setProductosAMostrar] = useState([]);
-    const { id } = useParams();
 
-    const getData = () => {
-        getProductos(id).then((querySnapshot) => {
-            let arrayData = [];
-            querySnapshot.forEach((doc) => {
-                arrayData.push({ id: doc.id, ...doc.data() });
-            });
-            setProductosAMostrar(arrayData);
-        });
-    }
+    const { category } = useParams();
 
-    useEffect(getData, [id]);
+
+    useEffect(() => {
+
+        const itemCollection = dataBase.collection("productos");
+
+        let filtroProductos;
+
+        if (category !== undefined && category !== null) {
+            filtroProductos = itemCollection.where('category', '==', category).get()
+        } else {
+            filtroProductos = itemCollection.get()
+        }
+
+        filtroProductos.then((response) => {
+            let filtrar = []
+            response.forEach((doc) => {
+                filtrar.push({ id: doc.id, ...doc.data() })
+            })
+            if (filtrar.size === 0) {
+                console.log("Vacío")
+            }
+            setProductosAMostrar(filtrar)
+        })
+
+    }, [category])
 
     return <>
         {productosAMostrar.length === 0 ? (
