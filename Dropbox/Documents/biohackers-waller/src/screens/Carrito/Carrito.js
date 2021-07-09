@@ -1,16 +1,23 @@
 import React, { useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import { CarritoContext } from "./../../context/ContextoCarrito";
+import { CarritoStyles } from './CarritoStyles'
+import { makeStyles } from '@material-ui/core';
 
+const useStyles = makeStyles((theme) => CarritoStyles(theme));
 
 export const TablaDeProductos = () => {
+
+    
+    const classes = useStyles();
+
 
     const history = useHistory();
 
     const { productosCarrito, removeProducto, subtotal } = useContext(CarritoContext);
 
-    return <div className='container-cart'>
-        <table className='table-shop'>
+    return <div className={classes.containerCarrito}>
+        <table className={classes.tableShop}>
             <thead>
                 <tr>
                     <th><h3>Producto</h3></th>
@@ -45,16 +52,16 @@ export const TablaDeProductos = () => {
                         <td></td>
                         <td></td>
                         <td><h3> ${item.quantity * item.item.price}</h3></td>
-                        <td><button className='botonclose' onClick={e => removeProducto(item.item.id)}><p><b>X</b></p></button></td>
+                        <td><button className={classes.botonClose} onClick={e => removeProducto(item.item.id)}><h3 className={classes.cruz}>X</h3></button></td>
                     </tr>
                 })
                 }
             </tbody>
         </table>
 
-        <div className='carrito-total'>
+        <div className={classes.carritoTotal}>
             <h2>Total del carrito: ${subtotal}</h2>
-            <button className='agregar' onClick={() => history.push(`/cart`)}><p className='letras'>Finalizar Compra</p></button>
+            <button className={classes.finalizar} onClick={() => history.push(`/cart`)}><p className={classes.letras}>Finalizar Compra</p></button>
         </div>
     </div>
 }
@@ -62,12 +69,14 @@ export const TablaDeProductos = () => {
 
 const CarritoVacio = () => {
 
+    const classes = useStyles();
+
     const history = useHistory();
 
-    return <div className='container-cart'>
+    return <div className={classes.containerCarrito}>
         <h3>NO HAY PRODUCTOS EN EL CARRITO :(</h3>
         <div>
-            <button className='agregar' onClick={() => history.push(`/`)}><p className='letras'>Volver al inicio</p></button>
+            <button className={classes.volver} onClick={() => history.push(`/`)}><p className={classes.letras}>Volver al inicio</p></button>
         </div>
     </div>
 }

@@ -1,17 +1,24 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import Drone from './../../img/drone.gif';
+import { Link } from 'react-router-dom';
 import { CarritoContext } from '../../context/ContextoCarrito';
+import { CarritoWidgetStyles } from './CarritoWidgetStyles'
+import { makeStyles } from '@material-ui/core';
+
+
+const useStyles = makeStyles((theme) => CarritoWidgetStyles(theme));
 
 export const CarritoWidget = () => {
 
-    const { productosCarrito, productosQuantity } = useContext(CarritoContext);
+    const { productosQuantity } = useContext(CarritoContext);
+
+    const classes = useStyles();
 
     const DroneFlotante = () => {
         return <>
-            <div className='column'>
-                <Link className='linkitems' to={`/carrito`}>
-                    <img src={Drone} className='column' id='drone' alt='' />
+            <div className={classes.carritoWidget}>
+                <Link to={`/carrito`} style={{ color: 'transparent' }}>
+                    <div className={classes.carritoWidget}><img src={Drone} className={classes.drone} alt='' /></div>
                     <h3>TU COMPRA ({productosQuantity})</h3>
                 </Link>
             </div>
@@ -19,10 +26,6 @@ export const CarritoWidget = () => {
     }
 
     return <section>
-        {productosCarrito.length === 0 ? (<DroneFlotante style={{ visibility: 'hidden' }} />) : (
-            <>
-                <DroneFlotante />
-            </>
-        )}
+        <DroneFlotante />
     </section>
 }

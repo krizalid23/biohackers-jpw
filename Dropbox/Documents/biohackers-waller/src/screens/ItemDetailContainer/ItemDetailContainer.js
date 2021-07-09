@@ -1,45 +1,54 @@
 import React, { useEffect, useState } from 'react';
 import { ItemDetail } from './../ItemDetail/ItemDetail'
-import { productoData } from './../ItemData/ItemData'
-import { useParams, Redirect } from 'react-router-dom';
+import { getProductoById } from './../../services/CloudFirestoreService';
+import { useParams } from 'react-router-dom';
+import { ItemDetailContainerStyles } from './ItemDetailContainerStyles'
+import { makeStyles } from '@material-ui/core';
 
 
-const MiPromesa = new Promise((resolve, reject) => {
-    setTimeout(() => resolve(productoData), 2000)
-})
+const useStyles = makeStyles((theme) => ItemDetailContainerStyles(theme));
+
 
 export const ItemDetailContainer = () => {
 
-    const [item, setItem] = useState([])
-
+    const classes = useStyles();
     const { id } = useParams();
 
-    useEffect(() => {
-        MiPromesa.then((productos) => {
-            const productosFiltrados = productos.filter(producto => producto.id === id);
-            setItem(productosFiltrados)
-        }).catch(() => <Redirect to={'/notFound'} />)
-    }, [id])
+    const [item, setItem] = useState([])
+    const [mostrarDetalle, setMostrarDetalle] = useState(false);
+    const [itemNoEncontrado, setItemNoEncontrado] = useState(false);
 
+    const getItem = () => {
+        setMostrarDetalle(false);
+        getProductoById(id).then((doc) => {
+            if (doc.exists) {
+                setItem({ id: doc.id, ...doc.data() });
+            } else {
+                setItemNoEncontrado(true);
+            }
+        }).catch((error) => {
+            console.log("Error getting document:", error);
+            setItemNoEncontrado(true);
+        }).finally(() => {
+            setMostrarDetalle(true);
+        });
+    }
 
-    return <>
-        {item.length === 0 ? (
-            <section><div className='container-detail'><br></br><br></br><h1 className='loader'>CARGANDO...</h1></div></section>
+    useEffect(getItem, [id]);
 
-        ) : (
-
-            item.map((item, i) => {
-
-                return <>
-                    <div className='container-detail'>
-                        <div key={i}>
+    return (
+        <div>
+            {
+                mostrarDetalle ? <>
+                    {itemNoEncontrado ? <h1>¡Ups! Ese item no se encuentra en nuestro catálogo.</h1> :
+                        <div className={classes.containerDetail}>
                             <ItemDetail producto={item} />
                         </div>
+                    }
+                </> :
+                    <div>
                     </div>
-                </>
-            })
-        )}
-    </>
+            }
+        </div>
+    );
 }
-
-

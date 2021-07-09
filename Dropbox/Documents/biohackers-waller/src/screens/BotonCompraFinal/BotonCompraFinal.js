@@ -1,18 +1,21 @@
 import React from 'react';
+import { BotonCompraFinalStyles } from './BotonCompraFinalStyles';
 import { Link } from 'react-router-dom';
-import { useHistory } from "react-router-dom";
+import { makeStyles } from '@material-ui/core';
 
+
+const useStyles = makeStyles((theme) => BotonCompraFinalStyles(theme));
 
 export const BotonCompraFinal = props => {
 
+    const classes = useStyles();
+
     const { clickCancelar } = props;
 
-    const history = useHistory();
-
     return <>
-        <div className='row--2'>
-        <Link onClick={() => clickCancelar(false)}><button className='cancelar'><h3 className='letras-boton'>CANCELAR COMPRA</h3></button></Link>
-        <Link onClick={() => history.push(`/carrito`)}><button className='finalizar'><h3 className='letras-boton'>FINALIZAR COMPRA</h3></button></Link>
+        <div className={classes.row2}>
+        <button className={classes.cancelar} onClick={() => clickCancelar(false)}><h3 className={classes.letrasboton}>CANCELAR COMPRA</h3></button>
+        <Link to={`/carrito`}><button className={classes.finalizar}><h3 className={classes.letrasboton}>FINALIZAR COMPRA</h3></button></Link>
         </div>
     </>
 }

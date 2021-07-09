@@ -1,6 +1,12 @@
 import React, { useState } from "react";
+import { ItemCounterStyles } from './ItemCounterStyles'
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ItemCounterStyles(theme));
 
 export const Counter = props => {
+
+    const classes = useStyles();
 
     const {stock, initial, cantidad, agregarProductos} = props;
 
@@ -15,13 +21,13 @@ export const Counter = props => {
     };
     
     return (
-        <div className='contador'>
-            <div className='sumaryrestar'>
-                <button onClick={handleDecrement} className='boton' disabled={count === initial ? true : false}><b className='signo'>-</b></button>
-                <h3 className='numero'>{count}</h3>
-                <button onClick={handleIncrement} className='boton' disabled={count < stock ? false : true}><b className='signo'>+</b></button>
+        <div className={classes.contador}>
+            <div className={classes.sumarYRestar}>
+                <button onClick={handleDecrement} className={classes.boton} disabled={count === initial ? true : false}><b className={classes.signo}>-</b></button>
+                <h3 className={classes.numero}>{count}</h3>
+                <button onClick={handleIncrement} className={classes.boton} disabled={count < stock ? false : true}><b className={classes.signo}>+</b></button>
             </div>
-            <button className='agregar' onClick={() => agregarProductos(count)} disabled={stock === 0 ? true : false}><h3 className='letras-boton'>AGREGAR AL CARRITO</h3></button>   
+            <button className={classes.agregar} onClick={() => agregarProductos(count)} disabled={stock === 0 ? true : false}><h3 className={classes.letrasboton}>AGREGAR AL CARRITO</h3></button>   
             { count === stock }  
             </div>);
 }

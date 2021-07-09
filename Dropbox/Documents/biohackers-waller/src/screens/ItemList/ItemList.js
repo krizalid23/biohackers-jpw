@@ -1,14 +1,12 @@
 import React from 'react';
 import { Item } from '../Item/Item.js'
 
-export const ItemList = (props) => {
-
-   const { productos } = props
+export const ItemList = ( {productos} ) => {
 
    return <>
-      {productos.map((producto, i) => {
+      {productos.map((element, i) => {
          return <div key={i}>
-            <Item {...producto} />
+            <Item producto={element} />
          </div>
       })
       }

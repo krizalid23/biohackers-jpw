@@ -12,6 +12,37 @@ body {
   overflow-y: hidden;
 }
 
+h1 {
+  font-family: Silkscreen;
+  font-size: 3em;
+  color: red;
+  text-align: center;
+  margin-top: 1%;
+}
+
+h2 {
+font-family: Silkscreen;
+font-size: 1em;
+color: rgb(41, 209, 19);
+}
+
+h3 {
+  font-family: Silkscreen;
+  color: rgb(41, 209, 19);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+h4 {
+  font-family: Silkscreen;
+  color: rgb(223, 13, 188);
+}
+
+h5 {
+  font-family: Silkscreen;
+  color: rgb(241, 241, 241);
+  margin-top: -3%;
+}
+
 @media (max-width: 768px) {
   
   body {
@@ -21,5 +52,9 @@ body {
     overflow-x: hidden;
     overflow-y: visible;
   }
-
+  
+  h3 {
+    font-size: 14px;
+  }
+  
 }

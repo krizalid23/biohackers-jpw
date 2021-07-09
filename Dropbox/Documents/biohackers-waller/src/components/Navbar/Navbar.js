@@ -1,34 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ChicaVR from './../../img/chicavr.gif';
+import { NavbarStyles } from './NavbarStyles'
+import { makeStyles } from '@material-ui/core';
+import './Navbar.css'
+
+const useStyles = makeStyles((theme) => NavbarStyles(theme));
 
 export default function Navbar() {
+
+    const classes = useStyles();
 
     const tangibles = 'tangibles';
     const intangibles = 'intangibles';
 
     return (
         <header>
-            <nav className="navbar">
-                <div className="branding-style">
-                    <Link aria-current="page" to={`/#`}><img src={ChicaVR} className="logo" title='' alt='' /></Link>
-                    <div className="tituloysubtitulo">
+            <nav className={classes.navbar}>
+                <div className={classes.brandingStyle}>
+                    <Link to={`/#`}><img src={ChicaVR} className={classes.logo} alt='' /></Link>
+                    <div className={classes.tituloysubtitulo}>
                         <h1>BIOHACKERS</h1>
-                        <h2 className='subtitulo'>E-COMMERCE TRANSHUMANISTA</h2>
+                        <h2 className={classes.subtitulo}>E-COMMERCE TRANSHUMANISTA</h2>
                     </div>
-                    <ul className='menu'>
-                        <Link to={`/#`} className='link'><li className="nav-item">HOME</li></Link>
-                        <li className="dropdown--1">
-                            <li className="nav-item">PRODUCTOS
-                                <ul className="dropdown--2">
-                                    <li className="nav-item"><Link to={`/category/${tangibles}`}>TANGIBLES</Link></li>
-                                    <li className="nav-item"><Link to={`/category/${intangibles}`}>INTANGIBLES</Link></li>
-                                </ul>
-                            </li>
-                        </li>
-                        <Link to={`/carrito`} id='carrito'><li className="nav-item">CARRITO</li></Link>
-                    </ul>
                 </div>
+                <ul className={classes.menu}>
+                    <Link to={`/#`}><li className={classes.navItem}>HOME</li></Link>
+                    <li className={classes.productos}>
+                        <li className={classes.navItem}>PRODUCTOS
+                            <ul className={classes.dropdown}>
+                                <li className={classes.navItem}><Link to={`/category/${tangibles}`}>TANGIBLES</Link></li>
+                                <li className={classes.navItem}><Link to={`/category/${intangibles}`}>INTANGIBLES</Link></li>
+                            </ul>
+                        </li>
+                    </li>
+                    <Link to={`/carrito`} className={classes.carrito}><li className={classes.navItem}>CARRITO</li></Link>
+                </ul>
             </nav>
         </header>
     );

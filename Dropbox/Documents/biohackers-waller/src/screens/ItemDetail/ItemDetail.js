@@ -2,15 +2,21 @@ import React, { useState, useContext } from 'react';
 import { Grid } from '@material-ui/core';
 import CardMedia from '@material-ui/core/CardMedia';
 import { Counter } from './../ItemCounter/ItemCounter';
+import { ItemDetailStyles } from './ItemDetailStyles'
 import { CarritoContext } from "./../../context/ContextoCarrito"
 import { BotonCompraFinal } from './../BotonCompraFinal/BotonCompraFinal'
+import { makeStyles } from '@material-ui/core';
 
-export const ItemDetail = (props) => {
+const useStyles = makeStyles((theme) => ItemDetailStyles(theme));
 
-    const { producto } = props
+export const ItemDetail = ( {producto} ) => {
+
+    const classes = useStyles();
     const [cantidad, setCantidad] = useState(0)
     const [click, setClick] = useState(false)
     const {addProducto, clear} = useContext(CarritoContext)
+
+    const { title, description, price, stock, pictureUrl, alt } = producto
 
     const onAdd = cantidad => {
         setCantidad(cantidad); 
@@ -25,7 +31,7 @@ export const ItemDetail = (props) => {
 
 
     return <>
-        <div className='itemdetail'>
+        <div className={classes.itemDetail}>
             <Grid container
                 xs={12}
                 direction="row"
@@ -35,23 +41,23 @@ export const ItemDetail = (props) => {
                 <Grid item xs={12} lg={4}>
                     <CardMedia
                         component="img"
-                        image={producto.pictureUrl}
-                        title={producto.alt}
+                        image={pictureUrl}
+                        title={alt}
                     />
                 </Grid>
                 <Grid item xs={12} lg={4}>
-                    <h3 className='title'>{producto.title}</h3>
-                    <h3 className='description'>{producto.description}</h3>
-                    <h4 className='price'>${producto.price}</h4>
+                    <h3 className={classes.title}>{title}</h3>
+                    <h3 className={classes.description}>{description}</h3>
+                    <h4 className={classes.price}>${price}</h4>
                     
                     {
                         click ?
                             <BotonCompraFinal clickCancelar={clickCancelar} />
                             :
-                            <Counter stock={producto.stock} initial={1} cantidad={cantidad} agregarProductos={onAdd} />
+                            <Counter stock={stock} initial={1} cantidad={cantidad} agregarProductos={onAdd} />
                     }
 
-                    <h4 className='stock'>{producto.stock} UNIDADES EN STOCK</h4>
+                    <h3>{stock} UNIDADES EN STOCK</h3>
 
                 </Grid>
             </Grid>

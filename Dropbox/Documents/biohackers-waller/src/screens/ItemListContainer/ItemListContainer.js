@@ -1,47 +1,56 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Redirect } from 'react-router-dom';
+import React, { useEffect, useState} from 'react';
+import { useParams } from 'react-router-dom';
 import CamBot1 from './../../img/camrobot1.gif';
 import CamBot2 from './../../img/camrobot2.gif';
-import { productoData } from './../ItemData/ItemData';
+import { ItemListContainerStyles } from './ItemListContainerStyles'
 import { ItemList } from './../ItemList/ItemList.js';
+import { getProductos } from './../../services/CloudFirestoreService';
+import { makeStyles } from '@material-ui/core';
 
-const MiPromesa = new Promise((resolve, reject) => {
-    setTimeout(() => resolve(productoData), 2000)
-})
+
+const useStyles = makeStyles((theme) => ItemListContainerStyles(theme));
+
 
 export const ItemListContainer = () => {
 
-    const { category } = useParams();
-    const [productos, setProductos] = useState([]);
+    const classes = useStyles();
 
+    const [productosAMostrar, setProductosAMostrar] = useState([]);
+    const { id } = useParams();
 
-    useEffect(() => { 
-        MiPromesa.then(data => { setProductos(data) }).catch(() => <Redirect to={'/notFound'} />) 
-    }, [])
+    const getData = () => {
+        getProductos(id).then((querySnapshot) => {
+            let arrayData = [];
+            querySnapshot.forEach((doc) => {
+                arrayData.push({ id: doc.id, ...doc.data() });
+            });
+            setProductosAMostrar(arrayData);
+        });
+    }
 
-    const filterByCategory = listOfProductos => { return category === undefined ? listOfProductos : listOfProductos.filter(producto => producto.category === category) }
+    useEffect(getData, [id]);
 
     return <>
-        {productos.length === 0 ? (
+        {productosAMostrar.length === 0 ? (
             <section>
-                <div className='row--1'>
-                    <img src={CamBot1} id='cambot' alt='' />
+                <div className={classes.row1}>
+                    <img src={CamBot1} className={classes.cambot} alt='' />
                     <h3>BIENVENIDOS A LA PRIMERA TIENDA DE PRODUCTOS BIOTECNOLOGICOS DE ARGENTINA 2045</h3>
-                    <img src={CamBot2} id='cambot' alt='' />
+                    <img src={CamBot2} className={classes.cambot} alt='' />
                 </div>
-                <div className='container'><h1 className='loader'>CARGANDO...</h1></div>
+                <div className={classes.container}><h1 className={classes.loader}>CARGANDO...</h1></div>
             </section>
         ) : (
             <section>
-                <div className='row--1'>
-                    <img src={CamBot1} id='cambot' alt='' />
-                    <h3 className='h3'>BIENVENIDOS A LA PRIMERA TIENDA DE PRODUCTOS BIOTECNOLOGICOS DE ARGENTINA 2045</h3>
-                    <img src={CamBot2} id='cambot' alt='' />
+                <div className={classes.row1}>
+                    <img src={CamBot1} className={classes.cambot} alt='' />
+                    <h3>BIENVENIDOS A LA PRIMERA TIENDA DE PRODUCTOS BIOTECNOLOGICOS DE ARGENTINA 2045</h3>
+                    <img src={CamBot2} className={classes.cambot} alt='' />
                 </div>
-                <div className='container'>
-                    <div className='items'>
-                    <ItemList productos={filterByCategory(productos)}/>
-                </div>
+                <div className={classes.container}>
+                    <div className={classes.items}>
+                        <ItemList productos={productosAMostrar} />
+                    </div>
                 </div>
             </section>
         )}
