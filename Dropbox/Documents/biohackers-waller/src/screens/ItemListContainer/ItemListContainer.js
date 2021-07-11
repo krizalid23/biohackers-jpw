@@ -4,7 +4,7 @@ import CamBot1 from './../../img/camrobot1.gif';
 import CamBot2 from './../../img/camrobot2.gif';
 import { ItemListContainerStyles } from './ItemListContainerStyles'
 import { ItemList } from './../ItemList/ItemList.js';
-import { dataBase } from './../../Firebase/firebase'
+import { dataBase } from './../../firebase/Firebase'
 import { makeStyles } from '@material-ui/core';
 
 
@@ -22,14 +22,14 @@ export const ItemListContainer = () => {
 
     useEffect(() => {
 
-        const itemCollection = dataBase.collection("productos");
+        const productosCollection = dataBase.collection("productos");
 
         let filtroProductos;
 
         if (category !== undefined && category !== null) {
-            filtroProductos = itemCollection.where('category', '==', category).get()
+            filtroProductos = productosCollection.where('category', '==', category).get()
         } else {
-            filtroProductos = itemCollection.get()
+            filtroProductos = productosCollection.get()
         }
 
         filtroProductos.then((response) => {
@@ -50,16 +50,16 @@ export const ItemListContainer = () => {
             <section>
                 <div className={classes.row1}>
                     <img src={CamBot1} className={classes.cambot} alt='' />
-                    <h3>BIENVENIDOS A LA PRIMERA TIENDA DE PRODUCTOS BIOTECNOLOGICOS DE ARGENTINA 2045</h3>
+                    <h3 className={classes.bienvenida}>BIENVENIDOS A LA PRIMERA TIENDA DE PRODUCTOS BIOTECNOLOGICOS DE ARGENTINA 2045</h3>
                     <img src={CamBot2} className={classes.cambot} alt='' />
                 </div>
-                <div className={classes.container}><h1 className={classes.loader}>CARGANDO...</h1></div>
+                <div className={classes.container}><h1 className={classes.loading}>CARGANDO...</h1></div>
             </section>
         ) : (
             <section>
                 <div className={classes.row1}>
                     <img src={CamBot1} className={classes.cambot} alt='' />
-                    <h3>BIENVENIDOS A LA PRIMERA TIENDA DE PRODUCTOS BIOTECNOLOGICOS DE ARGENTINA 2045</h3>
+                    <h3 className={classes.bienvenida}>BIENVENIDOS A LA PRIMERA TIENDA DE PRODUCTOS BIOTECNOLOGICOS DE ARGENTINA 2045</h3>
                     <img src={CamBot2} className={classes.cambot} alt='' />
                 </div>
                 <div className={classes.container}>

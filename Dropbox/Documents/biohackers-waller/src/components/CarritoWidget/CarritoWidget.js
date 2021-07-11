@@ -10,22 +10,31 @@ const useStyles = makeStyles((theme) => CarritoWidgetStyles(theme));
 
 export const CarritoWidget = () => {
 
-    const { productosQuantity } = useContext(CarritoContext);
+    const { productosCarrito, productosQuantity } = useContext(CarritoContext);
 
     const classes = useStyles();
 
     const DroneFlotante = () => {
+
         return <>
             <div className={classes.carritoWidget}>
                 <Link to={`/carrito`} style={{ color: 'transparent' }}>
                     <div className={classes.carritoWidget}><img src={Drone} className={classes.drone} alt='' /></div>
-                    <h3>TU COMPRA ({productosQuantity})</h3>
+                    <h3 className={classes.letras}>TU COMPRA ({productosQuantity})</h3>
                 </Link>
             </div>
         </>
     }
 
-    return <section>
-        <DroneFlotante />
-    </section>
+    return (
+        <>
+            {
+                productosCarrito.length !== 0 ?
+                    <section>
+                        <DroneFlotante />
+                    </section> : <></>
+            }
+        </>
+    );
+
 }

@@ -3,11 +3,12 @@ export const NavbarStyles = theme => {
     return ({
 
         navbar: {
+            backgroundColor: 'rgba(19, 20, 18, 0.507)',
             height: '5em',
             marginTop: '1px',
-            backgroundColor: 'rgba(19, 20, 18, 0.507)'
+            width: '100%'
         },
-
+          
         menu: {
             display: 'grid',
             gridTemplateColumns: 'repeat(5,auto)',
@@ -15,8 +16,7 @@ export const NavbarStyles = theme => {
             listStyleType: 'none',
             margin: 'auto',
             paddingLeft: '85%',
-            marginTop: '-3.3em'
-
+            marginTop: '-3em'
         },
 
         navItem: {
@@ -24,8 +24,8 @@ export const NavbarStyles = theme => {
             color: 'red',
             display: 'flex',
             flexDirection: 'row',
-            textDecoration: 'none'
-
+            textDecoration: 'none',
+            justifyContent: 'center'
         },
 
         brandingStyle: {
@@ -45,20 +45,36 @@ export const NavbarStyles = theme => {
 
         },
 
+        titulo: {
+            fontFamily: 'Silkscreen',
+            fontSize: '3em',
+            color: 'red',
+            textAlign: 'center',
+            marginTop: '1%',
+          },
+
         subtitulo: {
+            fontFamily: 'Silkscreen',
+            fontSize: '1em',
+            color: 'rgb(41, 209, 19)',
             marginTop: '-12%'
         },
 
         productos: {
-            width: '5em'
+            fontFamily: 'Silkscreen',
+            color: 'red',
+            display: 'flex',
+            flexDirection: 'row',
+            textDecoration: 'none',
+            marginLeft: '5%'
         },
 
         dropdown: {
-            width: '5em'
+            width: '4.5em'
         },
 
         carrito: {
-            marginLeft: '25%'
+            marginLeft: '5%'
         },
 
         "@media (max-width: 768px)": {
@@ -74,21 +90,21 @@ export const NavbarStyles = theme => {
             menu: {
                 display: 'flex',
                 flexDirection: 'column',
-                marginTop: '-26%',
-                marginLeft: '-15%'
+                marginTop: '-4.5em',
+                marginLeft: '-4em'
             },
 
             productos: {
-                marginLeft: '-35%',
+                marginLeft: '-0.5em',
                 marginTop: '3%'
             },
 
             dropdown: {
-                marginLeft: '-1%'
+                marginLeft: '-3%'
             },
 
             carrito: {
-                marginLeft: '-15%',
+                marginLeft: '-1em',
                 marginTop: '2.5%'
             }
 

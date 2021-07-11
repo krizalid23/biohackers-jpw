@@ -15,6 +15,9 @@ export const ItemCounterStyles = theme => {
         },
 
         numero: {
+            fontFamily: 'Silkscreen',
+            color: 'rgb(41, 209, 19)',
+            textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black',
             marginTop: '8%'
         },
 
@@ -70,6 +73,10 @@ export const ItemCounterStyles = theme => {
 
             boton: {
                 padding: '20px'
+            },
+
+            numero: {
+                fontSize: '14px'
             }
         }
 

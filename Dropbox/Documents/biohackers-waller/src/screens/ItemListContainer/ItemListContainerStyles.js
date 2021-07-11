@@ -2,21 +2,23 @@ export const ItemListContainerStyles = theme => {
 
     return ({
 
-        section: {
-            justifyContent: 'center'
-        },
-
         row1: {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
-            marginTop: '1em'
+            marginTop: '2em'
         },
 
+        bienvenida: {
+            fontFamily: 'Silkscreen',
+            color: 'rgb(41, 209, 19)',
+            textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black'
+          },
+
         cambot: {
-            width: '7em',
-            marginTop: '-1em',
-            marginLeft: '0.1%'
+            width: '6em',
+            marginTop: '-1%', 
+            marginLeft: '0.1%',
         },
 
         container: {
@@ -26,7 +28,7 @@ export const ItemListContainerStyles = theme => {
             borderRadius: '25px 25px 25px 25px',
             height: '39em',
             width: '80em',
-            marginTop: '1em',
+            marginTop: '1.5%',
         },
 
         items: {
@@ -43,9 +45,12 @@ export const ItemListContainerStyles = theme => {
             color: 'transparent'
         },
 
-        loader: {
+        loading: {
+            fontFamily: 'Silkscreen',
+            fontSize: '3em',
+            color: 'red',
+            textAlign: 'center',
             padding: '18%',
-            fontSize: '3em'
         },
 
         title: {
@@ -74,40 +79,46 @@ export const ItemListContainerStyles = theme => {
         },
 
         width: {
-            maxWidth: '10em',
-            marginLeft: '20%'
+            width: '8em',
+            marginLeft: '-2em'
         },
-
 
         "@media (max-width: 768px)": {
 
             row1: {
-                marginTop: '-0.1em',
+                marginTop: '0em',
             },
 
-            container: {
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                backgroundColor: 'rgba(19, 17, 17, 0.438)',
-                borderRadius: '25px 25px 25px 25px',
-                width: '100%',
-                maxHeight: '102em',
+            bienvenida: {
+                fontSize: '14px'
             },
 
-            items: {
-                display: 'flex',
-                flexDirection: 'column'
-            },
-
-            loader: {
+            loading: {
                 padding: '18%',
                 fontSize: '2em'
             },
 
             cambot: {
                 height: '5em',
-                marginTop: '1em'
+                marginTop: '-0.5em'
+            },
+
+            container: {            
+                alignItems: 'center',
+                backgroundColor: 'rgba(19, 17, 17, 0.438)',
+                borderRadius: '25px 25px 25px 25px',
+                width: '100%',
+                height: 'auto',
+            },
+
+            items: {
+                display: 'flex',
+                flexDirection: 'column',
+                height: 'auto'
+            },
+
+            width: {
+                marginLeft: '5px'
             },
         }
 

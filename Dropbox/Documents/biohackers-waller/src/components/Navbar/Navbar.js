@@ -20,19 +20,17 @@ export default function Navbar() {
                 <div className={classes.brandingStyle}>
                     <Link to={`/#`}><img src={ChicaVR} className={classes.logo} alt='' /></Link>
                     <div className={classes.tituloysubtitulo}>
-                        <h1>BIOHACKERS</h1>
+                        <h1 className={classes.titulo}>BIOHACKERS</h1>
                         <h2 className={classes.subtitulo}>E-COMMERCE TRANSHUMANISTA</h2>
                     </div>
                 </div>
                 <ul className={classes.menu}>
                     <Link to={`/#`}><li className={classes.navItem}>HOME</li></Link>
-                    <li className={classes.productos}>
-                        <li className={classes.navItem}>PRODUCTOS
+                    <li className={classes.productos}> PRODUCTOS
                             <ul className={classes.dropdown}>
                                 <li className={classes.navItem}><Link to={`/category/${tangibles}`}>TANGIBLES</Link></li>
                                 <li className={classes.navItem}><Link to={`/category/${intangibles}`}>INTANGIBLES</Link></li>
                             </ul>
-                        </li>
                     </li>
                     <Link to={`/carrito`} className={classes.carrito}><li className={classes.navItem}>CARRITO</li></Link>
                 </ul>

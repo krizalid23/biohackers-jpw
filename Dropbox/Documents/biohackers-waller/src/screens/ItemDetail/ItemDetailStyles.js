@@ -23,7 +23,13 @@ export const ItemDetailStyles = theme => {
             fontFamily: 'Silkscreen',
             color: 'rgb(41, 209, 19)',
             marginLeft: '3%'
-        }
+        },
+
+        price: {
+            fontFamily: 'Silkscreen',
+            color: 'rgb(223, 13, 188)',
+            marginLeft: '3%'
+        },
 
     })
 

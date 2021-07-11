@@ -22,10 +22,10 @@ export const Item = ( {producto} ) => {
             />
             <div>
                 <div className='row--1'>
-                    <h3>{title}</h3>
+                    <h3 className={classes.title}>{title}</h3>
                     <h4 className={classes.price}>${price}</h4>
                 </div>
-                <h5>{description}</h5>
+                <h5 className={classes.description}>{description}</h5>
             </div>
         </Link>
     </div>

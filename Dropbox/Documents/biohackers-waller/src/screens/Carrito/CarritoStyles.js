@@ -4,16 +4,25 @@ export const CarritoStyles = theme => {
 
         containerCarrito: {
             display: 'inline-block',
-            justifyContent: 'center',
-            alignItems: 'center',
             backgroundColor: 'rgba(19, 17, 17, 0.507)',
             borderRadius: '25px 25px 25px 25px',
             height: '33em',
             width: '60em',
-            marginTop: '5em'
+            marginTop: '2.5em',
         },
 
+        tableShop: {
+            justifyContent: 'center',
+            margin: 'auto',
+        },
+        
         letras: {
+            fontFamily: 'Silkscreen',
+            color: 'rgb(41, 209, 19)',
+            textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black'
+          },
+
+        letrasBoton: {
             fontFamily: 'Silkscreen',
             justifyContent: 'center',
             color: 'white',
@@ -29,13 +38,6 @@ export const CarritoStyles = theme => {
             marginLeft: '1em',
             borderRadius: '25px 25px 25px 25px',
             cursor: 'pointer'
-        },
-
-        tableShop: {
-            borderTop: '3px solid',
-            borderBottom: '3px solid',
-            justifyContent: 'center',
-            margin: 'auto'
         },
 
         carritoTotal: {
@@ -59,29 +61,36 @@ export const CarritoStyles = theme => {
             textShadow: 'none'
         },
 
+        total: {
+            fontFamily: 'Silkscreen',
+            color: 'rgb(223, 13, 188)',
+            marginLeft: '3%'
+        },
+
         "@media (max-width: 768px)": {
 
             containerCarrito: {
                 display: 'inline-block',
-                justifyContent: 'center',
-                alignItems: 'center',
                 backgroundColor: 'rgba(19, 17, 17, 0.507)',
                 borderRadius: '25px 25px 25px 25px',
                 height: '100%',
                 width: '100%',
-                marginTop: '5em'
+                marginTop: '5em',
+            },
+
+            table: {
+                overflowX: 'scroll'
             },
 
             tableShop: {
-                flexWrap: 'flex-wrap',
-                borderTop: '10px solid',
-                borderBottom: '10px solid',
-                width: '100%',
                 marginLeft: '5%'
             },
 
+            letras: {
+                fontSize: '14px'
+              },
+
             ancho: {
-                flexWrap: 'flex-wrap',
                 width: '100%'
             }
 

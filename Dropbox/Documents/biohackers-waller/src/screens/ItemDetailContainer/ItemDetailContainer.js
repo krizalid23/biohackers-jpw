@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ItemDetail } from './../ItemDetail/ItemDetail'
-import { getProductoById } from './../../services/CloudFirestoreService';
+import { dataBase } from './../../firebase/Firebase'
 import { useParams } from 'react-router-dom';
 import { ItemDetailContainerStyles } from './ItemDetailContainerStyles'
 import { makeStyles } from '@material-ui/core';
@@ -18,7 +18,14 @@ export const ItemDetailContainer = () => {
     const [mostrarDetalle, setMostrarDetalle] = useState(false);
     const [itemNoEncontrado, setItemNoEncontrado] = useState(false);
 
-    const getItem = () => {
+    const getProducto = () => {
+
+        const productosCollection = dataBase.collection("productos");
+
+        const getProductoById = (id) => {
+            return productosCollection.doc(id).get();
+        }
+        
         setMostrarDetalle(false);
         getProductoById(id).then((doc) => {
             if (doc.exists) {
@@ -34,7 +41,7 @@ export const ItemDetailContainer = () => {
         });
     }
 
-    useEffect(getItem, [id]);
+    useEffect(getProducto, [id]);
 
     return (
         <div>

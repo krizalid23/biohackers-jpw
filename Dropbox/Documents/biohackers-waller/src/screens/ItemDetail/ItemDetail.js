@@ -33,7 +33,6 @@ export const ItemDetail = ( {producto} ) => {
     return <>
         <div className={classes.itemDetail}>
             <Grid container
-                xs={12}
                 direction="row"
                 justify="center"
                 alignItems="center"
@@ -57,7 +56,7 @@ export const ItemDetail = ( {producto} ) => {
                             <Counter stock={stock} initial={1} cantidad={cantidad} agregarProductos={onAdd} />
                     }
 
-                    <h3>{stock} UNIDADES EN STOCK</h3>
+                    <h3 className={classes.stock}>{stock} UNIDADES EN STOCK</h3>
 
                 </Grid>
             </Grid>
